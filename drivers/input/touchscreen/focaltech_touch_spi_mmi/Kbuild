@@ -1,0 +1,16 @@
+ccflags-y += -I$(srctree)/drivers/input/touchscreen/focaltech_touch_spi_mmi/include
+ccflags-y += -I$(srctree)/drivers/input/touchscreen/focaltech_touch_spi/focaltech_test
+ccflags-y += -I$(srctree)/drivers/input/touchscreen/focaltech_touch_spi/focaltech_test/supported_ic
+
+obj-$(CONFIG_INPUT_TOUCHSCREEN_FOCALTECH_SPI_MMI) += focaltech_touch_spi_mmi.o
+focaltech_touch_spi_mmi-objs += focaltech_core.o
+focaltech_touch_spi_mmi-objs += focaltech_ex_fun.o
+focaltech_touch_spi_mmi-objs += focaltech_ex_mode.o
+focaltech_touch_spi_mmi-objs += focaltech_gesture.o
+focaltech_touch_spi_mmi-objs += focaltech_esdcheck.o
+focaltech_touch_spi_mmi-objs += focaltech_point_report_check.o
+focaltech_touch_spi_mmi-objs += focaltech_test/focaltech_test.o
+focaltech_touch_spi_mmi-objs += focaltech_test/focaltech_test_ini.o
+focaltech_touch_spi_mmi-objs += focaltech_flash.o
+focaltech_touch_spi_mmi-objs += focaltech_spi.o
+focaltech_touch_spi_mmi-objs += focaltech_test/supported_ic/focaltech_test_ft8006s_aa.o

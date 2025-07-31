@@ -156,6 +156,7 @@ struct dsi_backlight_config {
 	enum bl_update_flag bl_update;
 
 	bool bl_2bytes_enable;
+	bool bl_2bytes_2th_low4bit_enable;
 	u32 bl_min_level;
 	u32 bl_max_level;
 	u32 brightness_max_level;
@@ -190,6 +191,7 @@ struct dsi_panel_reset_config {
 	struct dsi_reset_seq *sequence;
 	u32 count;
 
+	bool custom_reset_seq;
 	int reset_gpio;
 	int disp_en_gpio;
 	int lcd_mode_sel_gpio;

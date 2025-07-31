@@ -252,7 +252,6 @@ ifeq ($(KERNEL_BUILD), 1)
 	obj-y	+= rouleur/
 	obj-y	+= wsa883x/
 	obj-y	+= sdm660_cdc/
-	obj-y	+= foursemi/
 endif
 # Module information used by KBuild framework
 obj-$(CONFIG_WCD9XXX_CODEC_CORE) += wcd_core_dlkm.o
@@ -306,9 +305,11 @@ aw882xx_dlkm-y := $(SND_SOC_AW882XX_OBJS)
 
 #Add fs1818 driver begain
 ifdef CONFIG_SND_SOC_FS16XX
+ifneq (,$(filter y, $(CONFIG_BATHENA_DTB) $(CONFIG_GUAM_DTB) $(CONFIG_GUAMNA_DTB) $(CONFIG_GUAMP_DTB)))
 	SND_SOC_FS16XX_OBJS += foursemi/fs16xx.o
 	SND_SOC_FS16XX_OBJS += foursemi/fs16xx_preset.o
 	SND_SOC_FS16XX_OBJS += foursemi/fs16xx_calibration.o
+endif
 endif
 obj-$(CONFIG_SND_SOC_FS16XX) += fs16xx_dlkm.o
 fs16xx_dlkm-y := $(SND_SOC_FS16XX_OBJS)
